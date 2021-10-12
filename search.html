@@ -92,9 +92,19 @@
 
       var distanceText = document.getElementById("distance");
       distanceText.innerHTML = "Distance is "+distanceText_+".";
-      
     }
-    
+
+    function distance(pos1, pos2){
+      rowColumn1 = getPosition(pos1);
+      rowColumn2 = getPosition(pos2);
+      var value1 = Math.abs(rowColumn1[0]-rowColumn2[0]);
+      var value2 = Math.abs(rowColumn1[1]-rowColumn2[1]);
+
+      if(value1 > value2)
+        return value1;
+      else
+        return value2;
+    }
     function getPosition(value){
       var col= 0;
       var row = 0;
@@ -115,18 +125,6 @@
         break;
       }
     return [row+1,col+1];
-    }
-
-    function distance(pos1, pos2){
-      rowColumn1 = getPosition(pos1);
-      rowColumn2 = getPosition(pos2);
-      var value1 = Math.abs(rowColumn1[0]-rowColumn2[0]);
-      var value2 = Math.abs(rowColumn1[1]-rowColumn2[1]);
-
-      if(value1 > value2)
-        return value1;
-      else
-        return value2;
     }
   </script>
 </body>
