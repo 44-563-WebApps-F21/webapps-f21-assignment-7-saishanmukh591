@@ -38,13 +38,29 @@
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
 		<button onclick="makeNewDiv()">Push value</button>
-	
 		<button onclick="popItem()">POP</button>
 		<button onclick="zap()">Zap values</button>
-	
-	
+		<button onclick="unique()">Unique</button>
 </body>
 <script>
+	function unique(){
+		var newArray = [];
+		var stackItems = document.getElementsByClassName("stack");
+		var length = stackItems.length;
+		var count_1 = 0;
+		for(var item=0;item< length;item++){
+			if(newArray.includes(stackItems[item-count_1].innerHTML)){
+				stackItems[item-count_1].remove();
+				count_1++;
+			}
+			else{
+				newArray.push(stackItems[item].innerHTML);
+			}
+		}
+		
+		console.log(newArray);
+	}
+
 	function makeNewDiv(){
 		/* make the div and its text */
 		let element = document.createElement("div");

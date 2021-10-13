@@ -20,6 +20,7 @@
 
   <script>
     var myTime;
+    var targetElement = document.getElementById("target");
 
     function recordReact(){
       myTime = Date.now();
@@ -28,15 +29,17 @@
 
 
     function startTime(){
+      targetElement.innerHTML = "Your time: "
+
       var countdownElement = document.getElementById("countdown");
-      for(let i = 0; i<=3; i++){
-        var myVar = setTimeout(function(){ countdownElement.innerHTML = "Count: "+i }, (3-i)*1000);
+      var countTime = Math.floor(Math.random()*10 + 2);
+      for(let i = 0; i<=countTime; i++){
+        var myVar = setTimeout(function(){ countdownElement.innerHTML = "Count: "+i }, (countTime-i)*1000);
       }
       setTimeout(()=>check(), 3000);
     }
 
     function check(){
-      var targetElement = document.getElementById("target");
       if(myTime ==null)
       {
       targetElement.innerHTML = "Too Slow."
