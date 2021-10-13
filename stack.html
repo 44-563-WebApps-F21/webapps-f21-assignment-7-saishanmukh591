@@ -40,7 +40,7 @@
 		<button onclick="makeNewDiv()">Push value</button>
 	
 		<button onclick="popItem()">POP</button>
-		<button onclick="makeNewDiv()">Zap values</button>
+		<button onclick="zap()">Zap values</button>
 	
 	
 </body>
@@ -53,6 +53,27 @@
 		element.className = "stack";
 		/* add it to the container */
 		document.getElementById('target').appendChild(element);
+	}
+
+	function popItem(){
+		var stackItems = document.getElementsByClassName("stack");
+		var stackItemsLength = stackItems.length;
+
+		if (stackItemsLength >0 ){
+			stackItems[stackItemsLength-1].remove();
+		}
+	}
+
+	function zap(){
+		var inputField = document.getElementById("inputField");
+		var field = inputField.value;
+		var stackItems = document.getElementsByClassName("stack");
+
+		for(var item=0;item< stackItems.length;item++){
+			if(stackItems[item].innerHTML == field){
+				stackItems[item].remove();
+			}
+		}
 	}
 
 
